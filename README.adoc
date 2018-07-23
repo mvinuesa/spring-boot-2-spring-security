@@ -1,0 +1,59 @@
+:icons: font
+
+= Spring Boot 2 with Spring Security
+:toc:
+:toclevels: 4
+
+
+[[intro]]
+== Intro
+The purpose of this application is to use Spring Boot 2 and Spring Security
+
+== Changelog
+Check the link:changelog.adoc[changelog.adoc] for an overview of changes.
+
+== API
+
+The REST api contains the following endpoints:
+
+.*Application service API*
+
+|=========================================================
+| |*HTTP Method* |*Path*
+| Endpoint with basic security | `GET` | `/api/endpointWithBasicSecurity`
+| Endpoint without security | `GET` | `/api/endpointWithoutSecurity`
+|=========================================================
+
+
+== Quick Start
+
+=== Build
+
+[source.console.shell]
+----
+mvn clean install
+----
+
+=== Run
+
+[source.console.shell]
+----
+mvn spring-boot:run
+----
+
+=== Test
+
+* How to test a *GET* `/api/endpointWithBasicSecurity`
+
+[source.console.shell]
+----
+curl -i -H "Authorization: BasicdXNlcjp1c2VyUGFzcw==" -X GET http://localhost:8080/api/endpointWithBasicSecurity
+----
+
+* How to test a *GET* `/api/endpointWithoutSecurity`
+
+[source.console.shell]
+----
+curl -i -X GET http://localhost:8080/api/endpointWithoutSecurity
+----
+
